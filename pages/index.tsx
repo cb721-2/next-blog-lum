@@ -4,18 +4,9 @@ import { GetStaticProps } from "next";
 import { PrismaClient } from "@prisma/client";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.scss";
-import { getSortedPostsData } from "../lib/posts";
 
 export const getStaticProps: GetStaticProps = async () => {
   const prisma = new PrismaClient();
-  // const today = new Date();
-  // await prisma.post.create({
-  //   data: {
-  //     title: `new post on ${today.getDate()}`,
-  //     date: `${today.getMonth()}/${today.getDate()}/${today.getFullYear()}`
-  //   },
-  // });
-  // this is where you would fetch data from the api
   const allPosts = await prisma.post.findMany();
   return {
     props: {
