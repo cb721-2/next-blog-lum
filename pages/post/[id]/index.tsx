@@ -23,6 +23,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
 interface Post {
   id: number;
   title: string;
+  content?: string;
   date: string;
 }
 
@@ -37,8 +38,9 @@ export default function Post({ post }: { post: Post }) {
       </Head>
       <div className="w-60 h-auto p-4 border-solid border border-gray-400 rounded bg-white shadow-sm mx-auto">
         <p className="text-black text-lg font-bold capitalize text-center">{post.title}</p>
-        <p className="text-gray-300 text-base text-center">
-          {format(parseISO(post.date), "LLLL d, yyyy")}
+        <p className="text-black text-base">{post.content}</p>
+        <p className="text-gray-300 text-sm text-center">
+          {post.date}
         </p>
       </div>
     </Layout>

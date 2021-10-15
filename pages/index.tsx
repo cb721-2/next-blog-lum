@@ -1,12 +1,22 @@
+import "tailwindcss/tailwind.css";
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 import { PrismaClient } from "@prisma/client";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.scss";
+import randomWords from "random-words";
 
 export const getStaticProps: GetStaticProps = async () => {
   const prisma = new PrismaClient();
+  const today = new Date();
+  await prisma.post.create({
+    data: {
+      title: randomWords(5).join(" "),
+      content: randomWords(Math.floor(Math.random() * 100) + 1).join(" "),
+      date: `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`,
+    },
+  });
   const allPostsData = await prisma.post.findMany();
   return {
     props: {
