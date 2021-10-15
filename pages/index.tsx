@@ -1,4 +1,4 @@
-import "tailwindcss/tailwind.css";
+import 'tailwindcss/tailwind.css';
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps } from "next";

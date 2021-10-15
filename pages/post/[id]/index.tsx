@@ -1,6 +1,7 @@
+import 'tailwindcss/tailwind.css';
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { GetStaticProps, GetServerSideProps } from "next";
+import { GetServerSideProps } from "next";
 import { parseISO, format } from "date-fns";
 import { PrismaClient } from "@prisma/client";
 import Layout from "../../../components/layout";

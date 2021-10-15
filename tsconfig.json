@@ -21,8 +21,10 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "lib/posts.js", "postcss.config.js"  ],
+    "**/*.tsx",
+    "lib/posts.js",
+    "postcss.config.js"
+  ],
   "exclude": [
     "node_modules"
   ]
