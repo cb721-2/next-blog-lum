@@ -7,10 +7,10 @@ import utilStyles from "../styles/utils.module.scss";
 
 export const getStaticProps: GetStaticProps = async () => {
   const prisma = new PrismaClient();
-  const allPosts = await prisma.post.findMany();
+  const allPostsData = await prisma.post.findMany();
   return {
     props: {
-      allPostsData: allPosts,
+      allPostsData,
     },
   };
 };
